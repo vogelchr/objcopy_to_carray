@@ -1,0 +1,6 @@
+Simple example how to use objcopy to link binary data to a c-program,
+without resorting to the c-compiler.
+
+Written in 2014 by Christian Vogel <vogelchr@vogel.cx>, but I claim
+no rights to this little snippet of code. Use as you see fit.
+
