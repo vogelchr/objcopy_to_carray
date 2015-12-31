@@ -19,9 +19,11 @@ endif
 
 passwd.o : /etc/passwd
 	objcopy -I binary $(OBJCOPY_ARCH) \
+		--rename-section .data=.rodata,alloc,load,readonly,data,contents \
 		$< $@ || (rm -f $@ ; exit 1)
 
 .PHONY : clean
 clean :
 	rm -f *.o passwd.* testme *.d *~
+
 
