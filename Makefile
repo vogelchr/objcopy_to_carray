@@ -20,6 +20,8 @@ endif
 passwd.o : /etc/passwd
 	objcopy -I binary $(OBJCOPY_ARCH) \
 		--rename-section .data=.rodata,alloc,load,readonly,data,contents \
+		--add-section ".note.GNU-stack"=/dev/null \
+		--set-section-flags ".note.GNU-stack"=contents,readonly \
 		$< $@ || (rm -f $@ ; exit 1)
 
 .PHONY : clean
